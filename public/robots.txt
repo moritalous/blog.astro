@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://moritalous.github.io/blog.astro/sitemap-index.xml
+Sitemap: https://astro.bedrock.day/sitemap-index.xml

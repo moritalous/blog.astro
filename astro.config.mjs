@@ -9,8 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://moritalous.github.io',
-	base: '/blog.astro',
+	site: 'https://astro.bedrock.day',
 	trailingSlash: 'never',
 
 	build: {

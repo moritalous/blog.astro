@@ -19,7 +19,7 @@ export default function PostList({ posts }: Props) {
 			<ul className="mt-8 space-y-6">
 				{posts.map((post) => (
 					<li key={post.id}>
-						<a href={`${import.meta.env.BASE_URL}/blog/${post.id}`} className="group block">
+						<a href={`/blog/${post.id}`} className="group block">
 							<h2 className="text-xl font-semibold text-gray-900 group-hover:underline">
 								{post.title}
 							</h2>

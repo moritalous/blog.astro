@@ -6,13 +6,13 @@ export async function GET(context) {
 	return rss({
 		title: 'Blog',
 		description: 'ブログ記事一覧',
-		site: new URL(import.meta.env.BASE_URL, context.site).href,
+		site: context.site,
 		trailingSlash: false,
 		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.pubDate,
-			link: `${import.meta.env.BASE_URL}/blog/${post.id}`,
+			link: `/blog/${post.id}`,
 		})),
 	});
 }

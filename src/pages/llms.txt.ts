@@ -13,7 +13,7 @@ export const GET: APIRoute = async ({ site }) => {
 		'',
 		...posts.map(
 			(post) =>
-				`- [${post.data.title}](${new URL(`${import.meta.env.BASE_URL}/blog/${post.id}.md`, site)}): ${post.data.description}`,
+				`- [${post.data.title}](${new URL(`blog/${post.id}.md`, site)}): ${post.data.description}`,
 		),
 	];
 
