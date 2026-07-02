@@ -1,0 +1,25 @@
+import { getCollection } from 'astro:content';
+import type { APIRoute } from 'astro';
+
+export const GET: APIRoute = async ({ site }) => {
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
+
+	const lines = [
+		'# Blog',
+		'',
+		'> ブログ記事のMarkdown版一覧です。各記事は URL 末尾に `.md` を付けると Markdown で取得できます。',
+		'',
+		'## Blog',
+		'',
+		...posts.map(
+			(post) =>
+				`- [${post.data.title}](${new URL(`${import.meta.env.BASE_URL}/blog/${post.id}.md`, site)}): ${post.data.description}`,
+		),
+	];
+
+	return new Response(lines.join('\n') + '\n', {
+		headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+	});
+};
