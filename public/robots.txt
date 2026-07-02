@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moritalous.github.io/blog.astro/sitemap-index.xml

@@ -1,26 +1,19 @@
 ---
 import Layout from './Layout.astro';
 import Article from '../components/Article';
-import type { Heading } from '../components/TableOfContents';
 
 interface Props {
 	title: string;
 	description: string;
 	pubDate: Date;
 	updatedDate?: Date;
-	headings: Heading[];
 }
 
-const { title, description, pubDate, updatedDate, headings } = Astro.props;
+const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-	<Article
-		title={title}
-		pubDate={pubDate.toISOString()}
-		updatedDate={updatedDate?.toISOString()}
-		headings={headings}
-	>
+	<Article title={title} pubDate={pubDate.toISOString()} updatedDate={updatedDate?.toISOString()}>
 		<slot />
 	</Article>
 </Layout>

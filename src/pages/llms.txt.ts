@@ -1,10 +1,8 @@
-import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { getBlogPosts } from '../lib/blog';
 
 export const GET: APIRoute = async ({ site }) => {
-	const posts = (await getCollection('blog')).sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-	);
+	const posts = await getBlogPosts();
 
 	const lines = [
 		'# Blog',
